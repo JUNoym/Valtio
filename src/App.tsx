@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { proxy, useSnapshot } from 'valtio'
+import CounterA from './CounterA'
+import AddText from './Add_text'
+
+
+export const state = proxy({ count: 0, text: ["やること１"] })
+
+const handler_click = () => {
+  state.count++
+}
 
 function App() {
+  const snap = useSnapshot(state)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>valtioチュートリアル</h1>
+      <div>
+        {snap.count}
+        <button onClick={handler_click}>+1</button>
+        {snap.text}
+      </div>
+      <CounterA />
+      <AddText />
+
     </div>
   );
 }
