@@ -1,20 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { state } from './App'
+import { useSnapshot } from 'valtio'
+
 
 
 const handler_click = () => {
-    console.log('ボタン押された', state.count)
     state.count += 10
 }
 
 function CounterA() {
+    const snap = useSnapshot(state)
     return (
         <div className="App">
             <h1>CounterAコンポーネントだよ</h1>
             <div>
-                {state.count}
+                {snap.count}
                 <button onClick={handler_click}>+10</button>
             </div>
         </div>

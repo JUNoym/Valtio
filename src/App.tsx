@@ -4,8 +4,8 @@ import { proxy, useSnapshot } from 'valtio'
 import CounterA from './CounterA'
 import AddText from './Add_text'
 
-
-export const state = proxy({ count: 0, text: ["やること１"] })
+// どこからでもアクセスできるようにexport
+export const state = proxy({ count: 0, text: ["やること1"] })
 
 const handler_click = () => {
   state.count++

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import { state } from './App'
+
 
 function CounterA() {
     const [text, setText] = useState('')
@@ -13,15 +14,15 @@ function CounterA() {
         state.count += 1000
     }
 
+
     return (
-        <div className="App">
+        <div className="App" >
             <h1>Add_Textコンポーネントだよ</h1>
             <div>
                 <input type="text"
                     value={text}
                     onChange={(e) => {
                         setText(e.target.value)
-                        console.log(e.target.value)
                     }}
                 />
                 <button onClick={handler_click}>やることを追加</button>
